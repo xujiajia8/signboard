@@ -16,187 +16,312 @@
         body {
             width: 100%;
             height: 100%;
-            background-color: rgba(6, 16, 65, 0.8);
+            background-color: #001235;
             font-size: 10px;
+            font-family: 'PingFang-SC-Bold';
         }
         
         .total {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: 85%;
             left: 0;
-            top: 0;
+            top:10%;
             overflow: hidden;
+            background:url(./static/images/bgc.png) no-repeat center;
+            background-size:100% 100%;
         }
-        
-        /* #ltop {
+        .ltopTal{
             position: absolute;
-            width: 30%;
-            height: 33%;
-            left: 0;
-            top: 0%;
-        } */
+            width: 29%;
+            height: 28%;
+            left: 1.5%;
+            top: 3.5%;
+            background:url(./static/images/ltopTal.png) no-repeat center;
+            background-size:100% 100%;
+        }
+
         #ltop1,#ltop2{
             position: absolute;
-            width: 15%;
-            height: 25%;
+            width: 50%;
+            height: 100%;
             top: 0%;
+            left:0%;
         }
         #ltop2{
-            left: 15%;
+            left: 50%;
         }
-        
-        /* #lmiddle {
+        .mtopTal{
             position: absolute;
-            width: 30%;
-            height: 33%;
-            left: 0;
-            top: 33%;
+            width: 40%;
+            height: 63%;
+            left: 30%;
+            top: 3.5%;
+            background:url(./static/images/mtop.png) no-repeat center;
+            background-size:100% 100%; 
         }
-        
-        #lbottom {
-            position: absolute;
-            width: 30%;
-            height: 33%;
-            left: 0;
-            top: 66%;
-        } */
-        
         #mtop {
             position: absolute;
-            width: 39%;
-            height: 60%;
-            left: 30%;
-            top: 10%;
+            width: 100%;
+            height: 75%;
+            left: 0%;
+            top: 19%;
         }
-        
-        #mbottom {
-            position: absolute;
-            width: 39%;
-            height: 30%;
-            left: 30%;
-            top: 70%;
-        }
-        
-        /* #rtop {
-            position: absolute;
-            width: 30%;
-            height: 33%;
-            right: 0;
-            top: 0%;
-        } */
-        #rtop1 {
-            position: absolute;
-            width: 10%;
-            height: 33%;
-            right: 20%;
-            top: 0%;
-        }
-        #rtop2 {
-            position: absolute;
-            width: 10%;
-            height: 33%;
-            right: 10%;
-            top: 0%;
-        }
-        #rtop3 {
-            position: absolute;
-            width: 10%;
-            height: 33%;
-            right: 0;
-            top: 0%;
-        }
-        
-        #rmiddle {
-            position: absolute;
-            width: 30%;
-            height: 33%;
-            right: 0;
-            top: 33%;
-        }
-        
-        #rbottom {
-            position: absolute;
-            width: 30%;
-            height: 33%;
-            right: 0;
-            top: 66%;
-        }
-        #radar1,#radar2,#radar3{
-            position: absolute;
-            width: 30%;
-            height: 25%;
-            left: 0;
-            top: 25%;
-        }
-        #radar2{
-            top: 50%;
-        }
-        #radar3{
-            top: 75%;
-        }
-        
         .title {
             color: #fff;
             text-align: center;
             position: absolute;
-            top: 4%;
-            left: 30%;
-            width: 40%;
-            font-size: 1.5rem;
+            top: 6%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100%;
+            height: 10%;
+            font-size: 1.2rem;
         }
         
         .title .top {
-            height: 30px;
             width: 100%;
         }
         
         .title span {
+            width: 15%;
             text-align: center;
-            width: 20%;
             display: inline-block;
+            margin-right: 4%;
+            margin-top: 1%;
             z-index: 99;
         }
-        .analysisA{
-            color:#fff
+        .title .bot span{
+            height: 5%;
+            border:1px solid #009BAE;
+        }
+        
+        #mbottom {
+            position: absolute;
+            width: 40%;
+            height: 32%;
+            left: 30%;
+            top: 64.5%;
+            background:url(./static/images/mbottom.png) no-repeat center;
+            background-size:100% 100%;
+        }
+        .rtopTotal{
+            position: absolute;
+            width: 29.5%;
+            height: 32%;
+            right: 1.4%;
+            top: 3.5%;
+            background:url(./static/images/rtopTotal.png) no-repeat center;
+            /* background-attachment: fixed; */
+            background-size:100% 100%;
+
         }
 
+
+        #rtop1 {
+            position: absolute;
+            width: 33.3%;
+            height: 100%;
+            right: 66.6%;
+            top: 0%;
+            
+        }
+        #rtop2 {
+            position: absolute;
+            width: 33.3%;
+            height: 100%;
+            right: 33.3%;
+            top: 0%;
+        }
+        .lbottomTal{
+            position: absolute;
+            width: 29%;
+            height: 67%;
+            left: 1.5%;
+            top: 30%;
+            background:url(./static/images/lbottomTal.png) no-repeat center;
+            background-size:100% 100%;
+        }
+        #radar1,#radar2,#radar3, #radar4{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left: 0;
+            top: 8%;
+        }
+        
+        #radar2{
+            left: 50%;
+        }
+        #radar3{
+            top: 48%;
+        }
+        #radar4{
+            left: 50%;
+            top: 48%;
+        }
+        #rtop3 {
+            position: absolute;
+            width: 33.3%;
+            height: 100%;
+            right: 0;
+            top: 0%;
+
+        }
+        
+        #rmiddle {
+            position: absolute;
+            width: 29.5%;
+            height: 32%;
+            right: 1.5%;
+            top: 34%;
+            background:url(./static/images/rmiddle.png) no-repeat center;
+            background-size:100% 100%;
+        }
+        
+        #rbottom {
+            position: absolute;
+            width: 29.5%;
+            height: 32%;
+            right: 1.5%;
+            top: 64.5%;
+            background:url(./static/images/rbottom.png) no-repeat center;
+            background-size:100% 100%;
+        }
+       
+        
+
+        .analysisA{
+            color:#fff;
+            font-size: 13px;
+            color:rgba(0,208,245,0.8);
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        .headerline{
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            left: 0;
+            top: 0%;
+            background:url(./static/images/header.png) no-repeat center;
+            background-size:100% 100%;
+         
+        }
+        .headerline p{  
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 2rem;
+            color:#fff;
+            letter-spacing:0.3rem;
+            font-family: 'PingFang-SC-Bold';
+        }
+        .botline{
+            position: absolute;
+            width: 100%;
+            height: 5%;
+            left: 0;
+            bottom: 0%;
+            background:url(./static/images/botline.png) no-repeat center;
+            background-size:100% 100%; 
+        }
+        .ltopTal p,.lbottomTal p,
+        .mtopTal p,.rtopTotal p,
+        p.mbottom,p.rbottom,p.rmiddle{
+            position: absolute;
+            color:#00F6FF;
+            font-size: 1.3rem;
+            z-index: 99;  
+        }
+        .ltopTal p{
+            left: 9%;
+            top: 13%;
+        }
+        .lbottomTal p{
+            left: 10%;
+            top: 6%;
+        }
+        .mtopTal p{
+            left: 7%;
+            top: 6%;
+        }
+        .rtopTotal p{
+            left: 10%;
+            top: 12%;
+        }
+        p.mbottom{
+            bottom: 28.5%;
+             left: 33%;
+        }
+        p.rbottom{
+            bottom: 29%;
+            right: 21.5%;
+        }
+        p.rmiddle{
+            bottom: 59.5%;
+            right: 21.5%;
+        }
     </style>
 </head>
 
 <body>
-    <a href="https://devanalysis.smindu.local/#/home" class="analysisA">进入管理分析系统</a>
+    <!-- <a href="https://devanalysis.smindu.local/#/home" class="analysisA">进入管理分析系统</a> -->
+    <div class="headerline">
+        <!-- 大数据资源采集系统 -->
+        <p>大数据资源采集系统</p>  
+    </div>
     <div class="total">
-        <!-- <div id="ltop"> -->
+        <div class="ltopTal">
+            <p>各类比例数据采集</p>
             <div id="ltop1"></div>
             <div id="ltop2"></div>
-        <!-- </div> -->
-        <!-- <div id="lmiddle"></div>
-        <div id="lbottom"></div> -->
-        <div id="radar1"></div>
-        <div id="radar2"></div>
-        <div id="radar3"></div>
-        <div class="title">
-            <div class="top">
-                <span></span>
-                <span></span>
-                <span></span>
+        </div>
+        <div class="lbottomTal">
+            <p>量表比例数据采集</p>
+            <div id="radar1"></div>
+            <div id="radar2"></div>
+            <div id="radar3"></div>
+            <div id="radar4"></div>
+        </div>
+        <div class="mtopTal">
+            <p>患者总量分布</p>
+            <div class="title">
+                <div class="top">
+                    <span>总患者人数</span>
+                    <span>总就诊量</span>
+                    <span>总记录数</span>
+                </div>
+                <div class="bot">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <div class="bot">
-                <span>总患者人数</span>
-                <span>总就诊量</span>
-                <span>总记录数</span>
+            <div id="mtop">
             </div>
         </div>
-        <div id="mtop"></div>
-        <div id="mbottom"></div>
-        <!-- <div id="rtop"></div> -->
-        <div id="rtop1"></div>
-        <div id="rtop2"></div>
-        <div id="rtop3"></div>
+        <div id="mbottom"> 
+        </div>
+        <p class="mbottom">总年就诊分布</p>
+        <div class="rtopTotal">
+            <p>各类比例数据采集</p>
+            <div id="rtop1"></div>
+            <div id="rtop2"></div>
+            <div id="rtop3"></div>
+        </div>
         <div id="rmiddle"></div>
-        <div id="rbottom"></div>
+        <p class="rmiddle">各类条数数据采集</p>
+        <div id="rbottom">
+        </div>
+        <p class="rbottom">各类比例数据采集</p>
     </div>
+    <div class="botline"></div>
 
 </body>
 <script src="./static/js/jquery.min.js"></script>
@@ -209,9 +334,9 @@
     // 假数据走一波     
     console.log(data);
     // 获取title数据数组
-    $('.title .top span').eq(0).html(data.titletopData[0]);
-    $('.title .top span').eq(1).html(data.titletopData[1]);
-    $('.title .top span').eq(2).html(data.titletopData[2]);
+    $('.title .bot span').eq(0).html(data.titletopData[0]);
+    $('.title .bot span').eq(1).html(data.titletopData[1]);
+    $('.title .bot span').eq(2).html(data.titletopData[2]);
     // 左上角饼图1
     ltopAjax1(data.ltopData1)
     // 左上角饼图2
@@ -222,6 +347,8 @@
     radarAjax2(data.radarData2.xradarData,data.radarData2.yradarData)
     // 左雷达图3
     radarAjax3(data.radarData3.xradarData,data.radarData3.yradarData)
+    // 左雷达图4
+    radarAjax4(data.radarData4.xradarData,data.radarData4.yradarData)
     // 中间上面地图
     mtopAjax(data.mtopData.provinceName, data.mtopData.provinceVal);
     // 中间下面柱状图
@@ -233,7 +360,7 @@
     // 右侧上面饼图3
     rtopAjax3(data.rtopData3)
     // 右侧中间折线图
-    rmiddleAjax(data.rmiddleData.xdata, data.rmiddleData.ydata,data.rmiddleData.namedata)
+    rmiddleAjax(data.rmiddleData.xdata, data.rmiddleData.ydata)
     // 右侧下面柱状图
     rbottomAjax(data.rbottomData)
     // 获取页面数据

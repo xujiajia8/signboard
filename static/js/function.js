@@ -2,8 +2,7 @@ function ltopAjax1(ltopData1) {
     var myChart = echarts.init(document.getElementById('ltop1'));
     var option = {
         title: {
-            text: '总性别比例',
-            // subtext: '纯属虚构',
+            // text: '总性别比例',
             x: 'center',
             top: '18%',
             textStyle: {
@@ -16,36 +15,36 @@ function ltopAjax1(ltopData1) {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-        // legend: {
-        //     orient: 'vertical',
-        //     left: 'left',
-        //     data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
-        //     textStyle: {
-        //         color: '#fff',
-        //     }
-        // },
         grid: {
             left: '0%',
             bottom: '0%',
             containLabel: true
         },
+        
         series: [{
             name: '数量',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '60%'],
+            center: ['55%', '60%'],
             color: ['rgba(26,208,245,0.3)', 'rgba(0,208,245,0.8)'],
+            label: {
+                normal: {
+                formatter:'{b}\n{d}%'
+                }
+            },
             labelLine: {
                 show: false,
-                length:6,
-                length2:6,
+                length:8,
+                length2:0,
             },
             data: ltopData1,
             itemStyle: {
                 emphasis: {
                     shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    shadowOffsetX: 5,
+                    shadowOffsetY: 5,
+                    shadowColor: 'RGBA(0, 67, 93, 0.5)',
+                    shadowColor: 'red'
                 }
             }
         }]
@@ -60,7 +59,7 @@ function ltopAjax2(ltopData2){
     var myChart = echarts.init(document.getElementById('ltop2'));
     var option = {
         title: {
-            text: '门诊住院比例',
+            // text: '门诊住院比例',
             // subtext: '纯属虚构',
             x: 'center',
             top: '18%',
@@ -74,12 +73,12 @@ function ltopAjax2(ltopData2){
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        // grid: {
-        //     left: '0%',
-        //     right: '0%',
-        //     top: '30%',
-        //     containLabel: true
-        // },
+        grid: {
+            left: '0%',
+            right: '75%',
+            top: '30%',
+            containLabel: true
+        },
 
         // legend: {
         //     orient: 'vertical',
@@ -93,26 +92,18 @@ function ltopAjax2(ltopData2){
             name: '数量',
             type: 'pie',
             radius: ['35%', '55%'],
-            center: ["center", "60%"], 　
+            center: ["45%", "60%"], 　
             avoidLabelOverlap: false,
             color: ['rgba(26,190,245,0.3)', 'rgba(0,208,245,0.8)'],
             label: {
                 normal: {
-                    // show: false,
-                    position: 'outside'
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '30',
-                        fontWeight: 'bold'
-                    }
+                formatter:'{b}\n{d}%'
                 }
             },
             labelLine: {
                 normal: {
-                    show: false,
-                    length:10,
+                    show: true,
+                    length:0,
                     length2:0,
                 }
             },
@@ -137,7 +128,7 @@ function radarAjax1(xradarData,yradarData) {
     }
     var option = {
         title: {
-            text: '表记录比例',
+            // text: '表记录比例',
             textStyle: {
                 color: '#fff',
                 fontWeight: 400,
@@ -154,7 +145,7 @@ function radarAjax1(xradarData,yradarData) {
         radar: {
             // shape: 'circle',
             nameGap : 6,
-            radius: "70%", //大小
+            radius: "55%", //大小
             grid: { // 控制图的大小，调整下面这些值就可以，
                 x: 40,
                 x2: 100,
@@ -173,7 +164,7 @@ function radarAjax1(xradarData,yradarData) {
             axisLine: {            // 坐标轴线
                 show: true,        // 默认显示，属性show控制显示与否
                 lineStyle: {       // 属性lineStyle控制线条样式
-                    color: '#1e6db3',
+                    color: '#006B82',
                     width: 1,
                     type: 'solid'
                 }
@@ -182,27 +173,41 @@ function radarAjax1(xradarData,yradarData) {
                 show : true,
                 lineStyle : {
                     width : 1,
-                    color : '#286fbb' // 图表背景网格线的颜色
+                    color : '#006B82' // 图表背景网格线的颜色
                 }
             },
             splitArea : {
                 show : true,    
                 areaStyle : {
-                    color: ["#17365d"]  // 图表背景网格的颜色
+                    color: ["#1A4861"]  // 图表背景网格的颜色
                 }
             },
         },
         series: [{
             // name: '预算 vs 开销（Budget vs spending）',
             type: 'radar',
+            symbol: 'none',
             itemStyle: {
                 normal: {
                     lineStyle: {
-                        color:"red" // 图表中各个图区域的边框线颜色
+                        color:"transparent" // 图表中各个图区域的边框线颜色
                     },
                     areaStyle: {
-                        color: 'rgba(0,208,245,0.8)',
+                        color:{ 
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(4,238,254,1)' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: 'rgba(71,113,236,1)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false},
+                        // 'linear-gradient(0deg, 0%,) 100%)'
                     }
+                }
                 }
             },
             data : [
@@ -230,7 +235,7 @@ function radarAjax2(xradarData,yradarData) {
     var myChart = echarts.init(document.getElementById('radar2'));
     var option = {
         title: {
-            text: '表记录比例',
+            // text: '表记录比例',
             textStyle: {
                 color: '#fff',
                 fontWeight: 400,
@@ -246,7 +251,7 @@ function radarAjax2(xradarData,yradarData) {
         radar: {
             // shape: 'circle',
             nameGap : 6,
-            radius: "70%", //大小
+            radius: "55%", //大小
             splitNumber: 4,
             name: {
                 textStyle: {
@@ -261,7 +266,7 @@ function radarAjax2(xradarData,yradarData) {
             axisLine: {            // 坐标轴线
                 show: true,        // 默认显示，属性show控制显示与否
                 lineStyle: {       // 属性lineStyle控制线条样式
-                    color: '#1e6db3',
+                    color: '#006B82' ,
                     width: 1,
                     type: 'solid'
                 }
@@ -270,27 +275,41 @@ function radarAjax2(xradarData,yradarData) {
                 show : true,
                 lineStyle : {
                     width : 1,
-                    color : '#286fbb' // 图表背景网格线的颜色
+                    color : '#006B82'  // 图表背景网格线的颜色
                 }
             },
             splitArea : {
                 show : true,    
                 areaStyle : {
-                    color: ["#17365d"]  // 图表背景网格的颜色
+                    color: ["#1A4861"]  // 图表背景网格的颜色
                 }
             },
         },
         series: [{
             // name: '预算 vs 开销（Budget vs spending）',
             type: 'radar',
+            symbol: 'none',
             itemStyle: {
                 normal: {
                     lineStyle: {
-                        color:"red" // 图表中各个图区域的边框线颜色
+                        color:"transparent" // 图表中各个图区域的边框线颜色
                     },
                     areaStyle: {
-                        color: 'rgba(0,208,245,0.8)',
+                        color:{ 
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(4,238,254,1)' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: 'rgba(71,113,236,1)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false},
+                        // 'linear-gradient(0deg, 0%,) 100%)'
                     }
+                }
                 }
             },
             data : [
@@ -318,7 +337,7 @@ function radarAjax3(xradarData,yradarData) {
     var myChart = echarts.init(document.getElementById('radar3'));
     var option = {
         title: {
-            text: '表记录比例',
+            // text: '表记录比例',
             textStyle: {
                 color: '#fff',
                 fontWeight: 400,
@@ -335,7 +354,7 @@ function radarAjax3(xradarData,yradarData) {
             // shape: 'circle',
             nameGap : 6,
             splitNumber: 4,
-            radius: "70%", //大小
+            radius: "55%", //大小
             name: {
                 textStyle: {
                     color: '#fff',
@@ -349,7 +368,7 @@ function radarAjax3(xradarData,yradarData) {
             axisLine: {            // 坐标轴线
                 show: true,        // 默认显示，属性show控制显示与否
                 lineStyle: {       // 属性lineStyle控制线条样式
-                    color: '#1e6db3',
+                    color: '#006B82' ,
                     width: 1,
                     type: 'solid'
                 }
@@ -358,26 +377,142 @@ function radarAjax3(xradarData,yradarData) {
                 show : true,
                 lineStyle : {
                     width : 1,
-                    color : '#286fbb' // 图表背景网格线的颜色
+                    color : '#006B82'  // 图表背景网格线的颜色
                 }
             },
             splitArea : {
                 show : true,    
                 areaStyle : {
-                    color: ["#17365d"]  // 图表背景网格的颜色
+                    color: ["#1A4861"]  // 图表背景网格的颜色
                 }
             },
         },
         series: [{
             // name: '预算 vs 开销（Budget vs spending）',
             type: 'radar',
+            symbol: 'none',
             itemStyle: {
                 normal: {
                     lineStyle: {
-                        color:"red" // 图表中各个图区域的边框线颜色
+                        color:"transparent" // 图表中各个图区域的边框线颜色
                     },
                     areaStyle: {
-                        color: 'rgba(0,208,245,0.8)',
+                        color:{ 
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(4,238,254,1)' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: 'rgba(71,113,236,1)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false},
+                        // 'linear-gradient(0deg, 0%,) 100%)'
+                    }
+                }
+                }
+            },
+            data : [
+                 {
+                    value :yradarData,
+                    // name : '实际开销（Actual Spending）'
+                }
+            ]
+        }]
+    };
+    myChart.setOption(option);
+            // echart图表自适应
+            window.addEventListener("resize", function() {
+                myChart.resize();
+            });
+}
+function radarAjax4(xradarData,yradarData) {
+    var indicatorData=[]
+    for(var i=0;i<xradarData.length;i++){
+        var obj={}
+        obj.name=xradarData[i];
+        obj.max=100
+        indicatorData.push(obj)
+    }
+    var myChart = echarts.init(document.getElementById('radar4'));
+    var option = {
+        title: {
+            // text: '表记录比例',
+            textStyle: {
+                color: '#fff',
+                fontWeight: 400,
+                fontSize: 15
+            },
+            top:'10%',
+            left:'10%',
+        },
+        tooltip: {},
+        // legend: {
+        //     // data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+        // },
+        radar: {
+            // shape: 'circle',
+            nameGap : 6,
+            splitNumber: 4,
+            radius: "55%", //大小
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    // backgroundColor: '#999',
+                    // borderRadius: 3,
+                    // padding: [3, 5]
+               },
+               margin:0,
+            },
+            indicator:indicatorData,
+            axisLine: {            // 坐标轴线
+                show: true,        // 默认显示，属性show控制显示与否
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: '#006B82' ,
+                    width: 1,
+                    type: 'solid'
+                }
+            },
+            splitLine : {
+                show : true,
+                lineStyle : {
+                    width : 1,
+                    color : '#006B82'  // 图表背景网格线的颜色
+                }
+            },
+            splitArea : {
+                show : true,    
+                areaStyle : {
+                    color: ["#1A4861"] // 图表背景网格的颜色
+                }
+            },
+        },
+        series: [{
+            // name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            symbol: 'none',
+            itemStyle: {
+                normal: {
+                    lineStyle: {
+                        color:"transparent" // 图表中各个图区域的边框线颜色
+                    },
+                    areaStyle: {
+                            color:{ 
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(4,238,254,1)' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: 'rgba(71,113,236,1)' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false},
+                            // 'linear-gradient(0deg, 0%,) 100%)'
+                        }
                     }
                 }
             },
@@ -848,16 +983,30 @@ function mbottomAjax(xdata, ydata) {
     var myChart = echarts.init(document.getElementById('mbottom'));
     var option = {
         title: {
-            text: '总年就诊分布',
-            x: 'center',
-            top: '18%',
+            text: '',
+            // x: 'center',
+            top: '12%',
+            left:'6%',
             textStyle: {
-                color: '#fff',
+                color: '#00F6FF',
                 fontWeight: 400,
-                fontSize: 15
+                fontSize: 13,
             }
         },
-        color: ['rgba(26,208,245,0.3)'],
+        color: {
+            type: 'linear',
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [{
+                offset: 0, color: 'rgba(76,103,235,0.5)' // 0% 处的颜色
+            }, {
+                offset: 1, color: 'rgba(0,246,255,0.5)' // 100% 处的颜色
+            }],
+            global: false // 缺省为 false
+        },
+        // color: ['linear-gradient(0deg,rgba(0,246,255,1) 0%,rgba(76,103,235,1) 100%)'],
         tooltip: {
             trigger: 'axis',
             axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -865,9 +1014,9 @@ function mbottomAjax(xdata, ydata) {
             }
         },
         grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '0%',
+            left: '8%',
+            // right: '4%',
+            bottom: '13%',
             containLabel: true
         },
         xAxis: [{
@@ -876,27 +1025,43 @@ function mbottomAjax(xdata, ydata) {
             // axisTick: {
             //     alignWithLabel: true
             // },
+            //    boundaryGap: false,
             axisTick: {
                 show: false
             },
             axisLine: {
                 lineStyle: {
-                    color: '#fff'
+                    color: 'rgba(173,231,255,0.3)'
+                },
+            },
+            axisLabel: {
+                show: true, //不显示坐标轴上的文字
+                textStyle:{
+                    color:'#EBEBEB',
+                    fontSize:10,
                 }
-            }
+            },
         }],
         yAxis: [{
             type: 'value',
             axisLine: {
-                show: false,
-                axisTick: {
-                    show: false
+                lineStyle: {
+                    color: 'rgba(173,231,255,0.3)'
                 },
-
+            },
+            axisTick: {
+                show: false
             },
             splitLine: {
                 show: false
-            }
+            },
+            axisLabel: {
+                show: true, //不显示坐标轴上的文字
+                textStyle:{
+                    color:'#EBEBEB',
+                    fontSize:10,
+                }
+            },
         }],
         series: [{
             name: '数量',
@@ -911,7 +1076,7 @@ function mbottomAjax(xdata, ydata) {
                         position: 'top', //在上方显示
                         textStyle: { //数值样式
                             color: '#fff',
-                            fontSize: 15
+                            fontSize: 10
                         }
                     }
                 }
@@ -928,7 +1093,7 @@ function rtopAjax1(rtopData1) {
     var myChart = echarts.init(document.getElementById('rtop1'));
     var option = {
         title: {
-            text: '总患者人数比例',
+            // text: '总患者人数比例',
             // subtext: '纯属虚构',
             x: 'center',
             top: '28%',
@@ -950,11 +1115,17 @@ function rtopAjax1(rtopData1) {
         //         color: '#fff',
         //     }
         // },
+        // grid: {
+        //     left: '0%',
+        //     // right: '4%',
+        //     bottom: '70%',
+        //     containLabel: true
+        // },
         series: [{
             name: '数量',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '60%'],
+            center: ['60%', '60%'],
             label: {
                 normal: {
                     position: 'inner', // 设置标签位置，默认在饼状图外 可选值：'outer' ¦ 'inner（饼状图上）'
@@ -962,9 +1133,32 @@ function rtopAjax1(rtopData1) {
                     // {a}指series.name  {b}指series.data的name
                     // {c}指series.data的value  {d}%指这一部分占总数的百分比
                     fontSize: 8,
+                    formatter:function(e){
+                        　　　　 var newStr=" ";
+                                var start,end;
+                         　　　　var name_len=e.name.length;    　　　　　　　　　　　　   //每个内容名称的长度
+                         　　　　var max_name=4;    　　　　　　　　　　　　　　　　　　//每行最多显示的字数
+                         　　　　var new_row = Math.ceil(name_len / max_name); 　　　　// 最多能显示几行，向上取整比如2.1就是3行
+                         　　　　if(name_len>max_name){ 　　　　　　　　　　　　　　  //如果长度大于每行最多显示的字数
+                          　　　　　　for(var i=0;i<new_row;i++){ 　　　　　　　　　　　   //循环次数就是行数
+                           　　　　　　　　var old='';    　　　　　　　　　　　　　　　　    //每次截取的字符
+                           　　　　　　　　start=i*max_name;    　　　　　　　　　　     //截取的起点
+                          　　　　　　　　 end=start+max_name;    　　　　　　　　　  //截取的终点
+                           　　　　　　　　if(i==new_row-1){    　　　　　　　　　　　　   //最后一行就不换行了
+                            　　　　　　　　　　old=e.name.substring(start);
+                           　　　　　　　　}else{
+                            　　　　　　　　　　old=e.name.substring(start,end)+"\n";    
+                          　　　　　　　　 }
+                           　　　　　　　　　　 newStr+=old; //拼接字符串
+                         　　　　　　  }
+                        　　　   }else{                                          //如果小于每行最多显示的字数就返回原来的字符串
+                          　　　　　　newStr=e.name; 
+                         　　　  }
+                         　　　 return newStr; 
+                        }
                 },
             },
-            color: ['rgba(26,190,245,0.3)', 'rgba(0,208,245,0.8)', 'rgba(0,254,255,0.8)', 'rgba(0,191,255,0.8)', 'rgba(0,175,250,0.8)', 'rgba(0,140,255,0.8)', ],
+            color: ['#FF549D', '#3C86EF', '#00CFD7' ],
             data: rtopData1,
             itemStyle: {
                 emphasis: {
@@ -985,7 +1179,7 @@ function rtopAjax2(rtopData2) {
     var myChart = echarts.init(document.getElementById('rtop2'));
     var option = {
         title: {
-            text: '总就诊量比例',
+            // text: '总就诊量比例',
             // subtext: '纯属虚构',
             x: 'center',
             top: '28%',
@@ -1019,9 +1213,32 @@ function rtopAjax2(rtopData2) {
                     // {a}指series.name  {b}指series.data的name
                     // {c}指series.data的value  {d}%指这一部分占总数的百分比
                     fontSize: 8,
+                    formatter:function(e){
+                        　　　　 var newStr=" ";
+                                var start,end;
+                         　　　　var name_len=e.name.length;    　　　　　　　　　　　　   //每个内容名称的长度
+                         　　　　var max_name=4;    　　　　　　　　　　　　　　　　　　//每行最多显示的字数
+                         　　　　var new_row = Math.ceil(name_len / max_name); 　　　　// 最多能显示几行，向上取整比如2.1就是3行
+                         　　　　if(name_len>max_name){ 　　　　　　　　　　　　　　  //如果长度大于每行最多显示的字数
+                          　　　　　　for(var i=0;i<new_row;i++){ 　　　　　　　　　　　   //循环次数就是行数
+                           　　　　　　　　var old='';    　　　　　　　　　　　　　　　　    //每次截取的字符
+                           　　　　　　　　start=i*max_name;    　　　　　　　　　　     //截取的起点
+                          　　　　　　　　 end=start+max_name;    　　　　　　　　　  //截取的终点
+                           　　　　　　　　if(i==new_row-1){    　　　　　　　　　　　　   //最后一行就不换行了
+                            　　　　　　　　　　old=e.name.substring(start);
+                           　　　　　　　　}else{
+                            　　　　　　　　　　old=e.name.substring(start,end)+"\n";    
+                          　　　　　　　　 }
+                           　　　　　　　　　　 newStr+=old; //拼接字符串
+                         　　　　　　  }
+                        　　　   }else{                                          //如果小于每行最多显示的字数就返回原来的字符串
+                          　　　　　　newStr=e.name; 
+                         　　　  }
+                         　　　 return newStr; 
+                        }
                 },
             },
-            color: ['rgba(26,190,245,0.3)', 'rgba(0,208,245,0.8)', 'rgba(0,254,255,0.8)', 'rgba(0,191,255,0.8)', 'rgba(0,175,250,0.8)', 'rgba(0,140,255,0.8)', ],
+            color:  ['#FF549D', '#3C86EF', '#00CFD7' ],
             data: rtopData2,
             itemStyle: {
                 emphasis: {
@@ -1042,7 +1259,7 @@ function rtopAjax3(rtopData3) {
     var myChart = echarts.init(document.getElementById('rtop3'));
     var option = {
         title: {
-            text: '总记录数比例',
+            // text: '总记录数比例',
             // subtext: '纯属虚构',
             x: 'center',
             top: '28%',
@@ -1068,7 +1285,7 @@ function rtopAjax3(rtopData3) {
             name: '数量',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '60%'],
+            center: ['40%', '60%'],
             label: {
                 normal: {
                     position: 'inner', // 设置标签位置，默认在饼状图外 可选值：'outer' ¦ 'inner（饼状图上）'
@@ -1076,9 +1293,32 @@ function rtopAjax3(rtopData3) {
                     // {a}指series.name  {b}指series.data的name
                     // {c}指series.data的value  {d}%指这一部分占总数的百分比
                     fontSize: 8,
+                    formatter:function(e){
+                        　　　　 var newStr=" ";
+                                var start,end;
+                         　　　　var name_len=e.name.length;    　　　　　　　　　　　　   //每个内容名称的长度
+                         　　　　var max_name=4;    　　　　　　　　　　　　　　　　　　//每行最多显示的字数
+                         　　　　var new_row = Math.ceil(name_len / max_name); 　　　　// 最多能显示几行，向上取整比如2.1就是3行
+                         　　　　if(name_len>max_name){ 　　　　　　　　　　　　　　  //如果长度大于每行最多显示的字数
+                          　　　　　　for(var i=0;i<new_row;i++){ 　　　　　　　　　　　   //循环次数就是行数
+                           　　　　　　　　var old='';    　　　　　　　　　　　　　　　　    //每次截取的字符
+                           　　　　　　　　start=i*max_name;    　　　　　　　　　　     //截取的起点
+                          　　　　　　　　 end=start+max_name;    　　　　　　　　　  //截取的终点
+                           　　　　　　　　if(i==new_row-1){    　　　　　　　　　　　　   //最后一行就不换行了
+                            　　　　　　　　　　old=e.name.substring(start);
+                           　　　　　　　　}else{
+                            　　　　　　　　　　old=e.name.substring(start,end)+"\n";    
+                          　　　　　　　　 }
+                           　　　　　　　　　　 newStr+=old; //拼接字符串
+                         　　　　　　  }
+                        　　　   }else{                                          //如果小于每行最多显示的字数就返回原来的字符串
+                          　　　　　　newStr=e.name; 
+                         　　　  }
+                         　　　 return newStr; 
+                        }
                 },
             },
-            color: ['rgba(26,190,245,0.3)', 'rgba(0,208,245,0.8)', 'rgba(0,254,255,0.8)', 'rgba(0,191,255,0.8)', 'rgba(0,175,250,0.8)', 'rgba(0,140,255,0.8)', ],
+            color: ['#FF549D', '#3C86EF', '#00CFD7' ],
             data: rtopData3,
             itemStyle: {
                 emphasis: {
@@ -1095,11 +1335,11 @@ function rtopAjax3(rtopData3) {
                 myChart.resize();
             });
 }
-function rmiddleAjax(xdata, ydata,namedata) {
+function rmiddleAjax(xdata, ydata) {
     var myChart = echarts.init(document.getElementById('rmiddle'));
     var option = {
         title: {
-            text: '条数',
+            text: '',
             x: 'left',
             top: '12%',
             left:'8%',
@@ -1113,38 +1353,46 @@ function rmiddleAjax(xdata, ydata,namedata) {
         tooltip: {
             trigger: 'axis'
         },
+        color:['#FF549D','#3C86EF','#00F6FF'],
         legend: {
-            data: namedata,
+            orient: 'vertical',
+            data: ['北京安定医院','河北医院','天津医院'],
             textStyle: {
                 color: '#fff',
+                fontSize:10,
             },
+            left:'6%',
+            top:'23%',
             icon: 'circle',
-            itemWidth: 10,  // 设置宽度
-            itemHeight: 10, // 设置高度
-            top:'13%',
-            // left:'25%'
+            itemWidth: 8,  // 设置宽度
+            itemHeight: 8, // 设置高度
         },
         grid: {
-            left: '20%',
-            right: '20%',
-            bottom: '0%',
-            top:'40%',
+            left: '30%',
+            // right: '20%',
+            bottom: '12%',
+            top:'28%',
             containLabel: true
         },
         xAxis: {
             type: 'category',
-            boundaryGap: false,
+            // boundaryGap: false,
             data: xdata,
             axisLine: {
                 lineStyle: {
-                    color: '#fff'
+                    color: 'rgba(173,231,255,0.3)'
                 },
             },
             axisTick: {
                 show: false
             },
-
-
+            axisLabel: {
+                show: true, //不显示坐标轴上的文字
+                textStyle:{
+                    color:'#EBEBEB',
+                    fontSize:10,
+                }
+            },
             splitLine: {
                 show: false
             }
@@ -1152,16 +1400,20 @@ function rmiddleAjax(xdata, ydata,namedata) {
         yAxis: {
             type: 'value',
             axisLine: {
-                show: false,
+                show: true,
                 lineStyle: {
-                    color: '#fff'
+                    color: 'rgba(173,231,255,0.3)'
                 },
             },
             axisTick: {
-                show: false
+                show: true
             },
             axisLabel: {
-                show: false, //不显示坐标轴上的文字
+                show: true, //不显示坐标轴上的文字
+                textStyle:{
+                    color:'#EBEBEB',
+                    fontSize:10,
+                }
             },
             splitLine: {
                 show: false
@@ -1169,38 +1421,60 @@ function rmiddleAjax(xdata, ydata,namedata) {
         },
         series: [
             {
-                name: namedata[0],
+                name: '北京安定医院',
                 type: 'line',
                 stack: '总量',
                 data: ydata[0],
                 itemStyle: {
                     normal: {
                         label: {
-                            show: true
-                        }
-                    }
+                            show: true,
+                            textStyle:{
+                                color: '#fff',
+                                fontSize:10,
+                            }
+                        },
+                        lineStyle:{ 
+                            color:'#FF549D'  //改变折线颜色
+                        } 
+                    },
+
                 },
             }, {
-                name: namedata[1],
+                name: '河北医院',
                 type: 'line',
                 stack: '总量',
                 data: ydata[1],
                 itemStyle: {
                     normal: {
                         label: {
-                            show: true
-                        }
-                    }
+                            show: true,
+                            textStyle:{
+                                color: '#fff',
+                                fontSize:10,
+                            }
+                        },
+                        lineStyle:{ 
+                            color:'#3C86EF'//改变折线颜色
+                        } 
+                    },
                 },
             }, {
-                name: namedata[2],
+                name: '天津医院',
                 type: 'line',
                 stack: '总量',
                 data: ydata[2],
                 itemStyle: {
                     normal: {
                         label: {
-                            show: true
+                            show: true,
+                            textStyle:{
+                                color: '#fff',
+                                fontSize:10,
+                            }
+                        },
+                        lineStyle:{ 
+                            color:'#00F6FF' //改变折线颜色
                         }
                     }
                 },
@@ -1217,15 +1491,15 @@ function rbottomAjax(rbottomData) {
     for(var i=0;i<rbottomData.length;i++){
         rbottomData[i].unit='%';
         if(i==0){
-            rbottomData[i].pos=['16.6%', '55%'];
+            rbottomData[i].pos=['20%', '55%'];
         }else if(i==1){
-            rbottomData[i].pos= ['49.8%', '55%'];
+            rbottomData[i].pos= ['50%', '55%'];
         }else if(i==2){
-            rbottomData[i].pos=['83%', '55%'];
+            rbottomData[i].pos=['80%', '55%'];
         }
     };
     var myChart = echarts.init(document.getElementById('rbottom'));
-    var highlight = '#03b7c9'; 
+    var highlight = '#0089A6'; 
     var option = {
         series: (function() {
             var result = [];
@@ -1235,7 +1509,7 @@ function rbottomAjax(rbottomData) {
                     {
                         type: 'gauge',
                         center: item.pos,
-                        radius: '33.33%',  // 1行3个
+                        radius: '50%',  // 1行3个
                         splitNumber: item.splitNum || 10,
                         min: 0,
                         max: 100,
@@ -1262,16 +1536,16 @@ function rbottomAjax(rbottomData) {
                         },
                         splitLine: {
                             show: true,
-                            length: -10,
+                            length: -5,
                             lineStyle: {
-                                color: highlight,
+                                color: '#00F6FF',
                             }
                         },
                         axisLabel: {
-                            distance: -20,
+                            distance: 10,
                             textStyle: {
                                 color: highlight,
-                                fontSize: '14',
+                                fontSize: '12',
                                 fontWeight: 'bold'
                             }
                         },
@@ -1288,7 +1562,7 @@ function rbottomAjax(rbottomData) {
                         name: item.name,
                         type: 'gauge',
                         center: item.pos,
-                        radius: '30.33%',
+                        radius: '30%',
                         startAngle: 225,
                         endAngle: -45,
                         min: 0,
@@ -1313,13 +1587,14 @@ function rbottomAjax(rbottomData) {
                         },
                         pointer: {
                             show: true,
-                            length: '105%'
+                            length: '105%',
+                            width:4,
                         },
                         detail: {
                             show: true,
-                            offsetCenter: [0, '100%'],
+                            offsetCenter: [0, '140%'],
                             textStyle: {
-                                fontSize: 18,
+                                fontSize: 12,
                                 color: '#fff'
                             },
                             formatter: [
@@ -1328,7 +1603,7 @@ function rbottomAjax(rbottomData) {
                             ].join('\n'),
                             rich: {
                                 name: {
-                                    fontSize: 14,
+                                    fontSize: 12,
                                     // lineHeight: 50,
                                     color: '#ddd'
                                 }
